@@ -1,0 +1,34 @@
+{
+  "name": "sails-native-criteria",
+  "version": "1.0.0",
+  "description": "This library helps you convert your sails query to a format that native mongodb understands.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/toniton/sails-native-criteria.git"
+  },
+  "keywords": [
+    "Sails",
+    "Sailsjs",
+    "Native",
+    "Mongodb",
+    "Criteria"
+  ],
+  "author": "Toniton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toniton/sails-native-criteria/issues"
+  },
+  "homepage": "https://github.com/toniton/sails-native-criteria#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.2",
+    "wolfpack": "^0.4.0"
+  },
+  "dependencies": {
+    "sails": "^0.12.13"
+  }
+}
