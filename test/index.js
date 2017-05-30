@@ -141,5 +141,30 @@ describe('Mongo Query', function () {
         });
     });
 
+    describe('Check for array in or', function () {
+        it('should respond with a valid mongo query', function () {
+            var sampleReq = routerReq({
+                method: 'GET',
+                url: '/test?where={"createdAt":{">":"2017-04-30T08:36:31.973Z","<=":"2017-05-30T08:36:31.973Z"},"status":["active","paid"]}&skip=0',
+                options: {
+                    model: 'test'
+                },
+                _sails: sails
+            });
+            var expectedDate = new Date("2017-05-26T20:46:52.459Z");
+            mixinReqParamsAll(sampleReq, null);
+            convert(sampleReq).should.deep.equal({
+                status: [
+                    "active",
+                    "paid"
+                ],
+                createdAt: {
+                    "$gt": new Date('2017-04-30T08:36:31.973Z'),
+                    "$lte": new Date('2017-05-30T08:36:31.973Z')
+                }
+            });
+        });
+    });
+
 });
 
