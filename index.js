@@ -14,7 +14,7 @@ module.exports = {
         var model = actionUtil.parseModel(req);
         var raw = JSON.stringify(actionUtil.parseCriteria(req));
         var modified = raw.replace('"or":', '"$or":').replace('">":', '"$gt":').replace('">=":', '"$gte":')
-            .replace('"<":', '"$lt":').replace('"<=":', '"$lte":');
+            .replace('"<":', '"$lt":').replace('"<=":', '"$lte":').replace('"!":', '"$ne":');
         var criteria = JSON.parse(modified);
         var attributes = model._attributes;
 
